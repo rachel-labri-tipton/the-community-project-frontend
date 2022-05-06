@@ -1,9 +1,10 @@
 module.exports = {
   content: [
     './public/index.html',
-    './src/**/*.{html,js}',
+    "./src/**/*.{html,js}",
     './src/**/*.js'
-  ],
+  ]
+  ,
   theme: {
     screens: {
       sm: '480px',
@@ -23,8 +24,9 @@ module.exports = {
       'gray-light': '#d3dce6',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: ['Open Sans', 'sans-serif'],
+      serif: ['Roboto Serif', 'serif'],
+      mono: ['Helvetica', 'mono']
     },
     spacing: {
       '1': '8px',
