@@ -5,6 +5,9 @@ module.exports = {
     './src/**/*.js'
   ]
   ,
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
   theme: {
     screens: {
       sm: '480px',
