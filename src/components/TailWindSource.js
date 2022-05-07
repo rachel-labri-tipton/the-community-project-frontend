@@ -20,7 +20,7 @@ const TailWind = () => {
                         <Link to="/register" class="hover:text-pink bg-blue py-2 px-4 rounded-r-4xl rounded-l-4xl">Register</Link>
                         <Link to="/about" class="hover:text-pink bg-blue py-2 px-4 rounded-r-4xl rounded-l-4xl">About Us</Link>
                     </div>
-                    <Link to="/login"><button class="bg-blue hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl">Login</button></Link>
+
 
                 </div>
                 <section class="container flex flex-col-reverse md: flex-row items-center px-6 mx-auto mt-10 space-y-0 md: space-y-0">

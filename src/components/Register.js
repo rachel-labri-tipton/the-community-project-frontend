@@ -1,5 +1,5 @@
 import React, { useState, useHistory } from "react"
-import { useNavigate, Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { data } from "autoprefixer"
 
@@ -17,6 +17,8 @@ const Register = () => {
         passwordConfirmation: ''
 
     })
+
+    const navigate = useNavigate()
     // const history = useHistory()
     const [errorMessage, setErrorMessage] = React.useState(false)
 
@@ -30,22 +32,27 @@ const Register = () => {
         try {
             const response = await axios.post("http://127.0.0.1:8000/users/register/", formData)
             console.log(response)
-            if (response.statusText === "Created") {
-                console.log(`Welcome ${data.response.username}`)
+            console.log(`Welcome ${response.data.username}`)
+            if (response.ok) {
+                // props.onRegister(result)
+                navigate('/login')
             }
-            // const { data } = await axios.post("http://127.0.0.1:8000/api/token/", formData)
-            // setToken(data.token)
-            // console.log(data.token)
-            // history.push('/users/')
-        } catch (e) {
+            else {
+                alert("Sorry! Registration did not work" `${response.data.username} already exists`)
+            }
+
+        }
+        // const { data } = await axios.post("http://127.0.0.1:8000/api/token/", formData)
+        // setToken(data.token)
+        // console.log(data.token)
+        // history.push('/users/')
+        catch (err) {
             console.log("problem registering user")
-            setErrorMessage(e.response.data)
+            setErrorMessage(err.response.data)
         }
     }
 
-    // const handleLogIn = () => {
-    //   history.push('/log-in')
-    // }
+
 
     // const handleImageUpload = (imageUrl, name) => {
     //     setFormData({ ...formData, [name]: imageUrl })
@@ -141,3 +148,25 @@ const Register = () => {
 }
 
 export default Register
+
+// // fetch("http://127.0.0.1:8000/users/register/", {
+// "method": "POST",
+//     "headers": {
+//     "cookie": "csrftoken=pgjljXkSHWOyRJMkCud77ykKsckEtiCazlwck8P92cw97QXnB4g8QgfSj1dfaCyP",
+//         "Content-Type": "application/json"
+// },
+// "body": {
+//     "first_name": "amanda",
+//         "last_name": "amanda",
+//             "username": "amanda",
+//                 "password": "+%3*&Dw8",
+//                     "password_repeat": "+%3*&Dw8",
+//                         "email": "amanda@jill.com"
+// }
+// })
+// .then(response => {
+//     console.log(response);
+// })
+//     .catch(err => {
+//         console.error(err);
+//     });
