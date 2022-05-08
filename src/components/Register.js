@@ -35,9 +35,9 @@ const Register = () => {
             console.log(`Welcome ${response.data.username}`)
             if (response.ok) {
                 // props.onRegister(result)
-                navigate('/login')
+                navigate('/landingpage')
             }
-            else {
+            else if (response.status.Http) {
                 alert("Sorry! Registration did not work" `${response.data.username} already exists`)
             }
 

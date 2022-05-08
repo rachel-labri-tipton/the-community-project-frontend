@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import axios from "axios"
-import { useNavigate, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 
-const TailWind = () => {
+const LandingPage = () => {
 
     return (
         <div class="drop-shadow-xl">
@@ -33,4 +33,4 @@ const TailWind = () => {
     )
 }
 
-export default TailWind
+export default LandingPage
