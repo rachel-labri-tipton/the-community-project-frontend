@@ -61,7 +61,7 @@ const Register = (props) => {
                                 <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                                     <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                                         <img
-                                            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/033/666/original/undraw_super_woman_dv0y.jpg?1651942143"
+                                            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/033/667/original/undraw_workout_gcgu.jpg?1651942149"
                                             // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
                                             class="w-full"
                                             alt="Phone"
@@ -132,7 +132,7 @@ const Register = (props) => {
                                                 alt="profile image"
                                             />
                                             <div>
-                                                <button type="submit" onClick={handleSubmit} class="mb-4 font-sans bg-blue mt-6 hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-xl">Sign me up!</button>
+                                                <button type="submit" onClick={handleSubmit} class="mb-4 font-sans bg-purple mt-6 hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-xl">Let's get you signed up!</button>
                                             </div>
                                         </form>
                                     </div>
