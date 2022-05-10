@@ -48,7 +48,9 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<WelcomePage />} />
-          <Route path="register" element={<Register />} />
+          <Route path="register" element={<Register
+            onRegister={(username) => { setUser(username) }}
+          />} />
           <Route
             path="login"
             element={<Login

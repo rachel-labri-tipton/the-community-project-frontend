@@ -49,7 +49,7 @@ const Login = (props) => {
             <h1 className="text-3xl font-bold underline">
                 Please Login
             </h1>
-            {error && <div>Heavens to Betsy, we weren't able to log you in.</div>}
+            {error && <div>Sorry, we weren't able to log you in.</div>}
             <form onSubmit={onLogin}>
                 <input
                     type="text"
