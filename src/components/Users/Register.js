@@ -1,5 +1,5 @@
 import React, { useState, useHistory, Profiler } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import axios from 'axios'
 import { data } from "autoprefixer"
 
@@ -21,8 +21,8 @@ const Register = (props) => {
 
     const navigate = useNavigate()
     // const history = useHistory()
-    const [errorMessage, setErrorMessage] = React.useState(false)
     const [selectedFile, setSelectedFile] = useState(null);
+    const [error, setError] = useState(false)
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -45,81 +45,107 @@ const Register = (props) => {
 
         }
         catch (err) {
-            console.log("problem registering user")
-            setErrorMessage(err.response.data)
+            console.log(err)
+            setError(true)
         }
     }
 
     return (
-        <section>
-            <h1 class="text-3xl font-bold font-serif mb-6 mt-6">We're excited you want to join our community.</h1>
-            {errorMessage && <div >{errorMessage}</div>}
+        <>
+            <section>
+                {error && <div>Sorry, we weren't able to register you. </div>}
+                <>
+                    <section class="h-screen">
+                        <div>
+                            <div class="container px-6 py-12 h-full mt-6">
+                                <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+                                    <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
+                                        <img
+                                            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/033/666/original/undraw_super_woman_dv0y.jpg?1651942143"
+                                            // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                                            class="w-full"
+                                            alt="Phone"
+                                        />
+                                    </div>
+                                    <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
+                                        <h1 className="text-2xl font-bold mb-2 font-sans">
+                                            We're glad you're here.
+                                        </h1>
+                                        <h3 class="font-sans mb-2">Please fill in the form below.</h3>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    class="rounded-r-4xl rounded-l-4xl"
-                    type="text"
-                    placeholder="First name*"
-                    name="first_name"
-                    value={formData.first_name}
-                    onChange={handleChange}
-                />
-                <input
-                    class="rounded-r-4xl rounded-l-4xl"
-                    placeholder="Last name*"
-                    name="last_name"
-                    value={formData.last_name}
-                    onChange={handleChange}
-                    type="text"
-                />
-                <input
-                    class="rounded-r-4xl rounded-l-4xl"
-                    placeholder="Username*"
-                    name="username"
-                    value={formData.username}
-                    onChange={handleChange}
-                    type="text"
-                />
-                <input
-                    class="rounded-r-4xl rounded-l-4xl"
-                    placeholder="Email address*"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    type="text"
-                />
-                <input
-                    class="rounded-r-4xl rounded-l-4xl"
-                    placeholder="Password*"
-                    name="password"
-                    type="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                />
-                <input
-                    class="rounded-r-4xl rounded-l-4xl"
-                    placeholder="Password confirmation*"
-                    name="password_repeat"
-                    type="password"
-                    value={formData.password_repeat}
-                    onChange={handleChange}
-                />
-                <input
-                    class="rounded-r-4xl rounded-l-4xl"
-                    placeholder="Upload your picture here."
-                    name="profile_image"
-                    type="file"
-                    value={formData.profile_image}
-                    onChange={handleChange}
-                    alt="profile image"
-                />
-                <div>
-                    <button type="submit" onClick={handleSubmit} class="bg-blue mt-6 hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-xl">Sign Up</button>
-                </div>
-            </form>
+                                        <form onSubmit={handleSubmit}>
+                                            <input
+                                                class="mb-2 font-sans form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-pink focus:outline-none"
+                                                type="text"
+                                                placeholder="First name*"
+                                                name="first_name"
+                                                value={formData.first_name}
+                                                onChange={handleChange}
+                                            />
+                                            <input
+                                                class="mb-2 font-sans form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:border-green focus:outline-none"
+                                                placeholder="Last name*"
+                                                name="last_name"
+                                                value={formData.last_name}
+                                                onChange={handleChange}
+                                                type="text"
+                                            />
+                                            <input
+                                                class="mb-2 font-sans form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green focus:outline-none"
+                                                placeholder="Username*"
+                                                name="username"
+                                                value={formData.username}
+                                                onChange={handleChange}
+                                                type="text"
+                                            />
+                                            <input
+                                                class="mb-2 font-sans form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-pink focus:outline"
+                                                placeholder="Email address*"
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                type="text"
+                                            />
+                                            <input
+                                                class="mb-2 font-sans form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-pink focus:outline-none"
+                                                placeholder="Password*"
+                                                name="password"
+                                                type="password"
+                                                value={formData.password}
+                                                onChange={handleChange}
+                                            />
+                                            <input
+                                                class="font-sans mb-2 form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green focus:outline-none"
+                                                placeholder="Password confirmation*"
+                                                name="password_repeat"
+                                                type="password"
+                                                value={formData.password_repeat}
+                                                onChange={handleChange}
+                                            />
+                                            <input
+                                                class="font-sans form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green focus:outline-none"
+                                                placeholder="Upload your picture here."
+                                                name="profile_image"
+                                                type="file"
+                                                value={formData.profile_image}
+                                                onChange={handleChange}
+                                                alt="profile image"
+                                            />
+                                            <div>
+                                                <button type="submit" onClick={handleSubmit} class="mb-4 font-sans bg-blue mt-6 hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-xl">Sign me up!</button>
+                                            </div>
+                                        </form>
+                                    </div>
 
-        </section >
-
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </>
+            </section>
+        </>
     )
 }
 
