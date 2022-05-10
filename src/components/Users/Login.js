@@ -63,7 +63,7 @@ const Login = (props) => {
                                 />
                             </div>
                             <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-                                <h1 className="text-2xl font-bold mb-6">
+                                <h1 className="font-sans text-2xl font-bold mb-6">
                                     We're glad you're back.
                                 </h1>
 
@@ -72,7 +72,7 @@ const Login = (props) => {
                                 <form onSubmit={onLogin}>
                                     <div class="mb-6">
                                         <input
-                                            class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            class="font-sans form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                             type="text"
                                             placeholder="Username"
                                             name="username"
@@ -80,7 +80,7 @@ const Login = (props) => {
                                         />
                                     </div>
                                     <input
-                                        class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                        class="font-sans form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         type="password"
                                         placeholder="Password"
                                         name="password"
@@ -88,16 +88,16 @@ const Login = (props) => {
                                     />
                                     <div>
 
-                                        <button type="submit" class="bg-blue hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-lg mt-6 mb-4">Login</button>
+                                        <button type="submit" class="font-sans bg-blue hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-lg mt-6 mb-4">Login</button>
                                     </div>
-                                    <Link to="/passwordrefresh" href="#!"
-                                        class="text-black hover:text-blue focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out mt-4">Forgot password?</Link>
+                                    <Link to="/passwordrefresh"
+                                        class="font-sans text-black hover:text-blue focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out mt-4">Forgot password?</Link>
 
 
-                                    <h1 className="text-2l font mb-4 mt-2">
+                                    <h1 className="font-sans text-2l font mb-4 mt-2">
                                         Here for the first time? <br></br>
                                     </h1>
-                                    <div><Link to="/register"><button class="bg-blue hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-lg">You can register here.</button></Link>
+                                    <div><Link to="/register"><button class="font-sans bg-blue hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-lg">You can register here.</button></Link>
                                     </div>
 
                                 </form>
