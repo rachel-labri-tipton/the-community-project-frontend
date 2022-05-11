@@ -6,7 +6,7 @@ import NavbarDesign from "./components/Navbar"
 import LandingPage from "./components/LandingPage";
 import PasswordRefresh from "./components/Users/PasswordRefresh";
 import Register from "./components/Users/Register"
-import BlogPost from "./components/BlogPosts";
+import BlogPostCards from "./components/BlogPostCards";
 import About from "./components/Users/About";
 import MembersPage from "./components/Users/MembersPage";
 import './App.css';
@@ -71,7 +71,7 @@ function App() {
               }} />} />
           <Route path="passwordrefresh" element={<PasswordRefresh />} />
           <Route path="about" element={<About />} />
-          <Route path="blogposts" element={<BlogPost />} />
+          <Route path="blogposts" element={<BlogPostCards />} />
           <Route path="LandingPage" element={<LandingPage />} />
           <Route path="communitymembers" element={<MembersPage />} />
         </Routes>

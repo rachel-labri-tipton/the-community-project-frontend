@@ -5,7 +5,7 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 //profileviews
 
 const MembersPage = () => {
-    const [users, setUsers] = useState(null)
+    const [users, setUsers] = useState([])
     const [accessToken] = useLocalStorage("accessToken", "")
 
     useEffect(() => {
