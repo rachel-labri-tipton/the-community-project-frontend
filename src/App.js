@@ -7,6 +7,7 @@ import LandingPage from "./components/LandingPage";
 import PasswordRefresh from "./components/Users/PasswordRefresh";
 import Register from "./components/Users/Register"
 import BlogPostCards from "./components/BlogPostCards";
+import BlogArticle from "./components/BlogArticle"
 import About from "./components/Users/About";
 import MembersPage from "./components/Users/MembersPage";
 import './App.css';
@@ -72,6 +73,7 @@ function App() {
           <Route path="passwordrefresh" element={<PasswordRefresh />} />
           <Route path="about" element={<About />} />
           <Route path="blogposts" element={<BlogPostCards />} />
+          <Route path="blogposts/:id" element={<BlogArticle />} />
           <Route path="LandingPage" element={<LandingPage />} />
           <Route path="communitymembers" element={<MembersPage />} />
         </Routes>
