@@ -97,7 +97,7 @@ const Login = (props) => {
                                     <h1 className="font-sans text-2l font mb-4 mt-2">
                                         Here for the first time? <br></br>
                                     </h1>
-                                    <div><Link to="/register"><button class="font-sans bg-blue hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-lg">You can register here.</button></Link>
+                                    <div><Link to="/register"><button class="mb-4 font-sans bg-blue hover:bg-pink font-bold py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-lg">You can register here.</button></Link>
                                     </div>
 
                                 </form>

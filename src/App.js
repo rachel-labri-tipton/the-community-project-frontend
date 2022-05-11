@@ -8,6 +8,7 @@ import PasswordRefresh from "./components/Users/PasswordRefresh";
 import Register from "./components/Users/Register"
 import BlogPost from "./components/BlogPosts";
 import About from "./components/Users/About";
+import MembersPage from "./components/Users/MembersPage";
 import './App.css';
 
 function App() {
@@ -72,7 +73,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="blogposts" element={<BlogPost />} />
           <Route path="LandingPage" element={<LandingPage />} />
-          <Route path="communitymembers" element={<CommunityMembers />} />
+          <Route path="communitymembers" element={<MembersPage />} />
         </Routes>
       </main>
     </div>
