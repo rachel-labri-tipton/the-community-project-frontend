@@ -33,7 +33,7 @@ const Login = (props) => {
                 console.log("Successful login for", formData.username)
                 const username = formData.username
                 props.onLogin(username)
-                navigate("/landingpage")
+                navigate("/homepage")
             }
 
         }
@@ -54,18 +54,19 @@ const Login = (props) => {
                         <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                             <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                                 <img
-                                    src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/033/666/original/undraw_super_woman_dv0y.jpg?1651942143"
+                                    src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/034/113/original/undraw_Creative_woman.png?1652359567"
                                     // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
                                     class="w-full"
                                     alt="Phone"
                                 />
                             </div>
                             <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-                                <h1 className="font-sans text-2xl font-bold mb-6">
+                                <h1 className="font-sans text-2xl font-bold mb-2">
                                     We're glad you're back.
                                 </h1>
+                                <p class="mb-2">Or here for the first time....</p>
 
-                                {error && <div>Sorry, we weren't able to log you in.</div>}
+                                {error && alert("Sorry, we weren't able to log you in.")}
 
                                 <form onSubmit={onLogin}>
                                     <div class="mb-6">

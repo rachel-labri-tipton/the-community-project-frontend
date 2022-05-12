@@ -10,7 +10,7 @@ const MembersPage = () => {
 
     useEffect(() => {
         const fetchMembers = async () => {
-            const response = await axios.get("http://127.0.0.1:8000/users/", {
+            const response = await axios.get("https://the-community-project.herokuapp.com/users/", {
                 headers: {
                     Authorization: "Bearer " + accessToken,
                 }

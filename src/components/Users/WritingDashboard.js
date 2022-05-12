@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
 import axios from 'axios'
 import { useParams } from "react-router-dom"
-import useLocalStorage from "../hooks/useLocalStorage"
+import useLocalStorage from "../../hooks/useLocalStorage"
 
 
 
-const BlogArticle = () => {
+
+const WritingDashboard = () => {
 
     const { id } = useParams()
     const [blogArticle, setBlogArticle] = useState([])
@@ -54,7 +55,6 @@ const BlogArticle = () => {
             <div id="editor">
                 <p>Hello World!</p>
                 <p>Some initial <strong>bold</strong> text</p>
-                <p><br></p>
             </div>
         </>
     )
@@ -63,3 +63,5 @@ const BlogArticle = () => {
 
 
 }
+
+export default WritingDashboard

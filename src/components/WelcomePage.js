@@ -20,7 +20,6 @@ function WelcomePage() {
                         <div
                             class="max-w-lg md:w-2/3 md:justify-end md:mt-10">
                             <img height={500} width={500} src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/033/985/original/undraw_People_re_8spw.png?1652261649" alt="group of people" />
-                            <button class="p-3 px-6 pt-2 text-teal drop-shadow-lg grounded-baseline hover:bg-light-green"><Link to="/about" class="justify-center">Find out more</Link></button>
                         </div>
                         <div class="flex justify-center md:justify-start md:ml-15">
 
@@ -74,7 +73,7 @@ function WelcomePage() {
 
                     </div>
                     <div class="md:pt-15">
-                        Register
+
                     </div>
                 </div>
             </section>
