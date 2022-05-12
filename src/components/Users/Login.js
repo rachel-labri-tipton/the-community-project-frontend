@@ -30,11 +30,9 @@ const Login = (props) => {
                 setRefreshToken(response.data.refresh)
                 setUsername(formData.username)
                 setIsStaffWriter(response.data.is_staff_writer)
-                // console.log(response.data.is_staff_writer)
                 console.log("Successful login for", formData.username)
                 const username = formData.username
                 props.onLogin(username)
-                props.onLogin(isStaffWriter)
                 navigate("/landingpage")
             }
 

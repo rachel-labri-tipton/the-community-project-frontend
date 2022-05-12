@@ -25,6 +25,30 @@ module.exports = {
       'gray-dark': '#273444',
       'gray': '#8492a6',
       'gray-light': '#d3dce6',
+      'light-purple': '#ffedff',
+      'light-green': "#defcf9",
+      'dk-lt-green': '#A0FFF0',
+      'lt-bl-purple': '#cadefc',
+      'yellow-orange': '#F9A826',
+      'teal': '#247291',
+      'mustard-yellow': '#F8DA5B',
+      'bright-green': '#00FF64',
+      'cream': '#EEF2E2'
+    },
+    extend: {
+      colors: {
+        'light-purple': '#ffedff',
+        'light-green': "#defcf9",
+        'lt-bl-purple': '#cadefc',
+        'yellow-orange': '#F9A826',
+        'teal': '#247291',
+        'mustard-yellow': '#F8DA5B',
+        'bright-green': '#00FF64',
+        'cream': '#EEF2E2',
+
+
+
+      }
     },
     fontFamily: {
       sans: ['Open Sans', 'sans-serif'],
