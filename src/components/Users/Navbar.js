@@ -13,29 +13,13 @@ const Navbar = () => {
                 <Link to='/login'>Login</Link>
                 <Link to='/about'>About</Link>
                 <Link to='/community'>Meet People</Link>
-                <Link to=''>Read our blog</Link>
+                <Link to='/'>Read our blog</Link>
                 <Link to=''>Write for us</Link>
                 <Link to='/register'>Register</Link>
             </div>
 
-            {/* hamburger menu */}
-            <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
-                <span class="hamburger-top"></span>
-                <span class="hamburger-middle"></span>
-                <span class="hamburger-bottom"></span>
-            </button>
-        </div>
-        {/* mobile menu */}
-        <div class="md:hidden">
-            <div id="menu" class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
-                <Link to='/login'>Login</Link>
-                <Link to='/about'>About</Link>
-                <Link to='/community'>Meet People</Link>
-                <Link to=''>Read our blog</Link>
-                <Link to=''>Write for us</Link>
-                <Link to='/register'>Register</Link>
-            </div>
-        </div>
+           </div>
+       
     </nav>
 }
 export default Navbar

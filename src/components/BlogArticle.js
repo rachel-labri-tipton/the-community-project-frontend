@@ -35,16 +35,26 @@ const BlogArticle = () => {
             <div>
                 <section>
                     <div class="container flex flex-col-reverse font-sans items-center px-6 mx-auto mt-10 space-y-6 md:space-y-10 md:flex-row md:mt-10 md:w-3/4">
-                        <img height={350} width={350} src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/034/001/original/undraw_React_re_g3ui.png?1652261949" alt="react lady" />
+                        <img height={350} width={350} src={blogArticle.image} alt="react lady" />
                         <div class="items-center text-center">
-                            <h1 class="font-medium leading-tight text-4xl text-center mt-0 mb-2 text-teal md:text-6xl">{blogArticle.title}</h1>
-                            <h2 class="font-sans text-3xl">by {blogArticle.author.first_name} </h2>
+
+                            <div class="items-center text-center">
+                                <h1 class="font-medium leading-tight text-4xl text-center mt-0 mb-2 text-teal md:text-6xl md:text-right">{blogArticle.title}</h1>
+                                {/* <h2 class="font-sans text-3xl">by {blogArticle.author.first_name} </h2> */}
+
+                            </div>
                         </div>
                     </div>
                 </section>
                 <section class="md:mx-auto md:w-2/3">
+                    <div class="container text-justify ml-32 mr-32 pr-6 pl-6 font-sans text-block md:text-justify">
+                        <p class="text-1xl">{blogArticle.content}</p>
+                    </div>
+                </section>
+                <section class="md:mx-auto md:w-2/3">
                     <div class="container text-justify  mx-6 my-4 pr-6 font-sans text-block md:text-left">
-                        <p>{blogArticle.content}</p>
+                        {/* <p>About the author: {blogArticle.author.bio}</p> */}
+                        <h2 class="font-sans text-md"> by Staff Writer</h2>
                     </div>
                 </section>
             </div>
