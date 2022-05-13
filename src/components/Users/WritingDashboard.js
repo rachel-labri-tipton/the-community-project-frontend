@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from 'axios'
 import { useParams } from "react-router-dom"
 import useLocalStorage from "../../hooks/useLocalStorage"
-
+import { API_URL } from "../../config"
 
 
 
@@ -25,7 +25,7 @@ const WritingDashboard = () => {
 
     useEffect(() => {
         const fetchBlogArticle = async () => {
-            const response = await axios.post(`http://127.0.0.1:8000/blogposts/`, {
+            const response = await axios.post(`${API_URL}/blogposts/`, {
                 headers: {
                     Authorization: "Bearer " + accessToken,
                 }

@@ -11,7 +11,7 @@ const About = () => {
                         <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                             <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                                 <img
-                                    src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/033/668/original/undraw_Yoga_re_i5ld.jpg?1651942157"
+                                    src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/034/099/original/undraw_React_re_g3ui_%282%29.png?1652341102"
                                     // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
                                     class="w-full"
                                     alt="dancing"
@@ -19,10 +19,10 @@ const About = () => {
                             </div>
                             <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
                                 <h1 className="text-2xl  font-sans mb-6">
-                                    About Us
+                                    About
                                 </h1>
-                                <p class="text-justify font-sans"> The Community Project is my final project for General Assembly's Software Engineering Immersive. It uses a Django backend deployed on herokuapp and a React Frontend deployed on Netlify.<br></br> <br></br> My idea was to use this project to build a backend that I might use for friends who are looking to build a community page. This version of the project has user profiles and a blog, but I hope to build it out to also have a chatroom and workshop sign-up feature.</p> <br></br>
-                                <h3 class="text-justify font-sans">Not sure you want to register? Maybe we could interest you in our newsletter.</h3>
+                                <p class="text-justify font-sans"> Hi! I'm <span class="text-pink font-bold">Rachel Tipton</span>, the maker of <span class="text-teal md:text-bold text-3xl">The Community Project</span>. This is my fourth and final project for General Assembly's Software Engineering Immersive. It uses a Python Django backend deployed to Heroku and a React Frontend deployed on Netlify.<br></br> <br></br> I love the idea of community and people connecting positively over activities or ideas they love. My idea was to use this project to build a backend that I might use for friends who are looking to build a community page for their own passions. This version of the project has a blog and login and register function. But I hope to build it out to have a chat and workshop sign-up feature. You can check out the project on <a href="https://github.com/rachel-labri-tipton" class="text-pink md:text-pink md:font-bold">GitHub</a>. Or feel free to check out my profile on <a href="https://www.linkedin.com/in/rachel-labri-tipton/" class="text-pink md:text-pink md:font-bold">LinkedIn</a>.</p><br></br>
+                                <h3 class="text-justify font-sans">I also wanted people to sign up for a newsletter. This seemed like the right place.</h3>
                                 <form>
                                     <div class="mb-3 mt-3">
                                         <input
@@ -47,7 +47,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
         </>
 
     )

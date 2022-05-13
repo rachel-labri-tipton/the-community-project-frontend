@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { Link } from "react-router-dom"
-
+import { API_URL } from "../config";
 
 const BlogPostCards = () => {
     const [blogPosts, setBlogPosts] = useState([])
@@ -10,7 +10,7 @@ const BlogPostCards = () => {
 
     useEffect(() => {
         const fetchBlogPosts = async () => {
-            const response = await axios.get("http://127.0.0.1:8000/blogposts/", {
+            const response = await axios.get(`${API_URL}/blogposts/`, {
                 headers: {
                     Authorization: "Bearer " + accessToken,
                 }
@@ -43,7 +43,7 @@ const BlogPostCards = () => {
                                         {blogpost.excerpt}
                                     </p>
                                     <p class="text-gray-600 text-xs">by {blogpost.author.first_name}</p>
-                                    <Link to={`/blogposts/${blogpost.id}/`}><button class="mb-4 font-sans bg-light-green mt-6 hover:bg-pink  py-2 px-4 rounded-full rounded-r-4xl rounded-l-4xl drop-shadow-x md:">Read more</button></Link>
+                                    <Link to={`/blogposts/${blogpost.id}/`}><button class="mb-4 font-sans bg-light-green mt-6 hover:bg-pink  py-2 px-4 rounded-full rounded-r-4xl rounded-l-xl drop-shadow-x md:">Read more</button></Link>
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@ import React, { useState, useHistory, Profiler } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import axios from 'axios'
 import { data } from "autoprefixer"
-
+import { API_URL } from "../../config"
 
 const Register = (props) => {
 
@@ -32,7 +32,7 @@ const Register = (props) => {
         e.preventDefault()
 
         try {
-            const response = await axios.post("http://127.0.0.1:8000/users/register/", formData)
+            const response = await axios.post(`${API_URL}/users/register/`, formData)
             console.log(response)
             console.log(`Welcome ${response.data.username}`)
             if (response.statusText === "Created") {

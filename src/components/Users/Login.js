@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import useLocalStorage from "../../hooks/useLocalStorage"
 import { useNavigate, Link } from "react-router-dom"
+import { API_URL } from "../../config"
 
 const Login = (props) => {
     const [accessToken, setAccessToken] = useLocalStorage("accessToken", "")
@@ -20,7 +21,7 @@ const Login = (props) => {
     const onLogin = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post("http://127.0.0.1:8000/api/token/", formData)
+            const response = await axios.post(`${API_URL}/api/token /`, formData)
             const result = await response
             console.log(result)
 

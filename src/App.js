@@ -2,8 +2,6 @@ import React, { useState } from "react"
 import { Routes, BrowserRouter as Router, Route, Link } from "react-router-dom"
 import Login from "./components/Users/Login"
 import WelcomePage from "./components/WelcomePage";
-import NavbarDesign from "./components/Navbar"
-import PasswordRefresh from "./components/Users/PasswordRefresh";
 import Register from "./components/Users/Register"
 import BlogPostCards from "./components/BlogPostCards";
 import BlogArticle from "./components/BlogArticle"
@@ -12,6 +10,7 @@ import WritingDashboard from "./components/Users/WritingDashboard"
 import MembersPage from "./components/Users/MembersPage";
 import HomePage from "./components/HomePage"
 import './App.css';
+
 
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false)
@@ -74,7 +73,6 @@ function App() {
                 setUser(username)
                 setIsStaffWriter(false)
               }} />} />
-          <Route path="passwordrefresh" element={<PasswordRefresh />} />
           <Route path="about" element={<About />} />
           <Route path="blogposts" element={<BlogPostCards />} />
           <Route path="blogposts/:id" element={<BlogArticle />} />
