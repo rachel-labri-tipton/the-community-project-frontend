@@ -13,7 +13,7 @@ import './App.css';
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false)
+  const [loggedIn, setLoggedIn] = React.useState(true)
   const [isStaffWriter, setIsStaffWriter] = React.useState(false)
   const [username, setUser] = React.useState()
 
@@ -40,7 +40,7 @@ function App() {
                 }
                 <Link to="blogposts">Blog</Link>
 
-                <div>Welcome back {username}! </div>
+                <div class="md:font-bold text-3xl">Welcome back {username}! </div>
                 <Link to="/about">About</Link>
                 <Link to="/" onClick={() => {
                   setLoggedIn(false)
@@ -79,7 +79,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="blogposts" element={<BlogPostCards />} />
           <Route path="blogposts/:id" element={<BlogArticle />} />
-          <Route path="writingdashboard" element={<WritingDashboard />} />
+          <Route path="blogwriting" element={<WritingDashboard />} />
           <Route path="homepage" element={<HomePage />} />
           <Route path="communitymembers" element={<MembersPage />} />
         </Routes>
