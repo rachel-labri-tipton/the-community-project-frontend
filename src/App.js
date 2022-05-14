@@ -29,14 +29,17 @@ function App() {
 
           <div class="hidden space-x-6 md:flex md:w-3/4 md:justify-start">
             {loggedIn ? (
-              <> {isStaffWriter ? (
-                <Link to="/blogwriting">Write Something</Link>
-              ) : (
-                <Link to="/writeforus">Write For Us</Link>
-              )
-              }
+
+              <>
+                <Link to="homepage">Home</Link>
+                {isStaffWriter ? (
+                  <Link to="/blogwriting">Write Something</Link>
+                ) : (
+                  <Link to="/writeforus">Write For Us</Link>
+                )
+                }
                 <Link to="blogposts">Blog</Link>
-                <Link to="communitymembers">Community</Link>
+
                 <div>Welcome back {username}! </div>
                 <Link to="/about">About</Link>
                 <Link to="/" onClick={() => {
