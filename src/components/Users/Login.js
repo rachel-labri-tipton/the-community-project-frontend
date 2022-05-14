@@ -21,7 +21,7 @@ const Login = (props) => {
     const onLogin = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post(`${API_URL}/api/token /`, formData)
+            const response = await axios.post(`${API_URL}/api/token/`, formData)
             const result = await response
             console.log(result)
 
