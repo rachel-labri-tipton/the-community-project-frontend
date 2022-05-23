@@ -74,7 +74,7 @@ function App() {
               onLogin={(username, userStatus) => {
                 setLoggedIn(true)
                 setUser(username)
-                setIsStaffWriter(false)
+                setIsStaffWriter(true)
               }} />} />
           <Route path="about" element={<About />} />
           <Route path="blogposts" element={<BlogPostCards />} />
