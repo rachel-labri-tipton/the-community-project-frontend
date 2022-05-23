@@ -13,8 +13,8 @@ import './App.css';
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(true)
-  const [isStaffWriter, setIsStaffWriter] = React.useState(false)
+  const [loggedIn, setLoggedIn] = React.useState(false)
+  const [isStaffWriter, setIsStaffWriter] = React.useState(true)
   const [username, setUser] = React.useState()
 
   return (
