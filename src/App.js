@@ -13,7 +13,7 @@ import './App.css';
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false)
+  const [loggedIn, setLoggedIn] = React.useState(true)
   const [isStaffWriter, setIsStaffWriter] = React.useState(false)
   const [username, setUser] = React.useState()
 
@@ -29,15 +29,18 @@ function App() {
 
           <div class="hidden space-x-6 md:flex md:w-3/4 md:justify-start">
             {loggedIn ? (
-              <> {isStaffWriter ? (
-                <Link to="/blogwriting">Write Something</Link>
-              ) : (
-                <Link to="/writeforus">Write For Us</Link>
-              )
-              }
+
+              <>
+                <Link to="homepage">Home</Link>
+                {isStaffWriter ? (
+                  <Link to="/blogwriting">Write Something</Link>
+                ) : (
+                  <Link to="/writeforus">Write For Us</Link>
+                )
+                }
                 <Link to="blogposts">Blog</Link>
-                <Link to="communitymembers">Community</Link>
-                <div>Welcome back {username}! </div>
+
+                <div class="md:font-bold text-3xl">Welcome back {username}! </div>
                 <Link to="/about">About</Link>
                 <Link to="/" onClick={() => {
                   setLoggedIn(false)
@@ -71,12 +74,12 @@ function App() {
               onLogin={(username, userStatus) => {
                 setLoggedIn(true)
                 setUser(username)
-                setIsStaffWriter(false)
+                setIsStaffWriter(true)
               }} />} />
           <Route path="about" element={<About />} />
           <Route path="blogposts" element={<BlogPostCards />} />
           <Route path="blogposts/:id" element={<BlogArticle />} />
-          <Route path="writingdashboard" element={<WritingDashboard />} />
+          <Route path="blogwriting" element={<WritingDashboard />} />
           <Route path="homepage" element={<HomePage />} />
           <Route path="communitymembers" element={<MembersPage />} />
         </Routes>
