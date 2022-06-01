@@ -96,33 +96,155 @@ As you can see, I had some ambitious ideas!
 
 ## Development
 
-My backend adventures got off to a rough start. Django uses the term "app" for a specific python class or model. I still don't know what exactly went wrong, but I got a lot of errors setting up my Blog Post app and there were problems migrating the the apps into my TablePlus database. Long story short, but day 2 of coding, I was brave and deleted everything and started a new Django project. 
+In this section I talk about some difficulties I had starting to code the backend Django project and then look at a few key pieces of code that I'm proud of from the backend and the front end. 
+
+### Getting off to a rough start 
+With my wireframes and user stories drafted, I booted up the VSCode and started my new Django project. To be honest, my backend adventures got off to a rough start. Setting up my models, which Django uses th term "app" for, I got a lot of errors with my Blog Post app and there were problems migrating the the apps into my TablePlus database. Long story short, at day 2 of coding, I cut my losses, deleted everything and started a new Django project from scratch. This wasn't fun, but definitely a good learning experience as our instructors encouraged us to write code we might eventually delete. 
 
 ### Backend CRUD functionality
 
-#### Working with serializers 
+In comparison to the MERN Stack application that I made in my Project 3, the Django REST Framework offered a different kind of complexity. I'm proud of all the Django apps in my backend having full CRUD functionality. This project allowed me to more deeply understand serializers as well as authentication and permissions in the Python Django framework. 
 
-One piece of code that I worked on for what felt like a long time was the serializer function for updating 
+#### Authentication and permissions working with serializers
 
- - add code snippet for get context or whatever it was 
+In my API, when a user wants to post a blog post, the serializer checks that the user has the status of writer. 
 
-#### Authorization and permissions 
- - add code snippet showing 
+This piece of code allows the user to update their profile and checks that the individual updating the profile is in fact the user. 
+
+```
+class ProfileEditSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CommunityUser
+        fields = ('username', 'first_name',
+                  'last_name', 'email', 'bio',)
+
+        extra_kwargs = {
+            'first_name': {'required': True},
+            'last_name': {'required': True},
+            'username': {'required': True},
+            'email': {'required': True}
+        }
+
+    def validate(self, attrs):
+        request = self.context.get("request")
+        username = self.context.get("username")
+        print("attributes", attrs)
+        if request and hasattr(request, "user"):
+            if attrs['username'] != request.user.username:
+                raise serializers.ValidationError({
+                    "not_user": "Woops! What are you doing here? Only the person who made this profile can update it."
+                })
+
+        print("attributes", attrs)
+
+        return attrs
+#
+        # request = self.context.get("request")
+        # if request and hasattr(request, "user"):
+        #     if not request.user.is_premium:
+        #         raise serializers.ValidationError({
+        #             "is_premium": "Only premium users can create and update books."
+        #         })
+
+        # return attrs
+
+    def update(self, userprofile, data):
+
+        userprofile.username = data.get("username", userprofile.username)
+        userprofile.first_name = data.get(
+            "first_name", userprofile.first_name)
+        userprofile.last_name = data.get(
+            "last_name", userprofile.last_name)
+        userprofile.email = data.get("email", userprofile.email)
+        userprofile.bio = data.get("bio", userprofile.bio)
+
+    # save to the database
+        userprofile.save()
+        print("userprofile", userprofile.email)
+    # render to the api
+        return userprofile
+
+```
+And this one is the BlogPostSerialer, which verifies that the user is in fact a "staff_writer". 
+
+```
+
+class ProfileEditSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CommunityUser
+        fields = ('username', 'first_name',
+                  'last_name', 'email', 'bio',)
+
+        extra_kwargs = {
+            'first_name': {'required': True},
+            'last_name': {'required': True},
+            'username': {'required': True},
+            'email': {'required': True}
+        }
+
+    def validate(self, attrs):
+        request = self.context.get("request")
+        username = self.context.get("username")
+        print("attributes", attrs)
+        if request and hasattr(request, "user"):
+            if attrs['username'] != request.user.username:
+                raise serializers.ValidationError({
+                    "not_user": "Woops! What are you doing here? Only the person who made this profile can update it."
+                })
+
+        print("attributes", attrs)
+
+        return attrs
+#
+        # request = self.context.get("request")
+        # if request and hasattr(request, "user"):
+        #     if not request.user.is_premium:
+        #         raise serializers.ValidationError({
+        #             "is_premium": "Only premium users can create and update books."
+        #         })
+
+        # return attrs
+
+    def update(self, userprofile, data):
+
+        userprofile.username = data.get("username", userprofile.username)
+        userprofile.first_name = data.get(
+            "first_name", userprofile.first_name)
+        userprofile.last_name = data.get(
+            "last_name", userprofile.last_name)
+        userprofile.email = data.get("email", userprofile.email)
+        userprofile.bio = data.get("bio", userprofile.bio)
+
+    # save to the database
+        userprofile.save()
+        print("userprofile", userprofile.email)
+    # render to the api
+        return userprofile
+
+```
 
 ### Front end noteworthy features 
+In the second week of the project, I turned my focus to building the front end. I'm proud of working with props and implementing user authentication on the front end. 
 
 #### Working with props
- - Props (username)
+ - I'm particulary proud of the following line of code that uses a prop to set the username upon login and renders the user name in . In the gif above, you can see that the logged in user is "communityadvocate" where it says in the navbar, "Welcome back, communityadvocate!" 
 
-#### Authorization
+ (add code snippet) 
 
- - changing the loggedIn/loggedOut status
- - changing isStaffWriter and changing what's in the navbar 
+#### Authentication
+In my previous project, I didn't focus on authentication in the front end, so it was important to make this a key feature of my project. 
+
+The following is the code for logging in a user and using props to indicate in the App.js file if the user is loggedIn or loggedOut. 
+
+ (add code snippet)
+
 
 ### Deployment and Styling 
 
-- a note on deployment
-- a note on styling 
+- On day 12 of the project, I deployed my Django app to Heroku. I got quite an error message that Gunicorn was failing to boot workers. I found this helpful article that walked me through the steps of sorting this issue out. I was able to deploy the front end on Netlify the next day but encountered CORS issues that persisted until after the project presentation but have been resolved. 
+- In the last week of the project, I had fun playing around with Tailwind styling. One of the features I appreciate about this styling library is that it is mobile-first, and my Django app can be viewed on a mobile device as well as a laptop. This is feature my other projects don't have. 
 
 ## Wins 
 
