@@ -61,7 +61,7 @@ I love the idea of community and people connecting positively over activities or
 
 ## Planning 
 
-Take a day or two to plan my project helped me feel comfortable and confident when I started to code. 
+Taking a day or two to plan my project helped me feel comfortable and confident when I started to code. 
 
 ### Database Diagrams
 
@@ -98,7 +98,7 @@ As you can see, I had some ambitious ideas!
 In this section I talk about some difficulties I had starting to code the backend Django project and then look at a few key pieces of code that I'm proud of from the backend and the front end. 
 
 ### Getting off to a rough start 
-With my wireframes and user stories drafted, I booted up the VSCode and started my new Django project. To be honest, my backend adventures got off to a rough start. Setting up my models, which Django uses th term "app" for, I got a lot of errors with my Blog Post app and there were problems migrating the the apps into my TablePlus database. Long story short, at day 2 of coding, I cut my losses, deleted everything and started a new Django project from scratch. This wasn't fun, but definitely a good learning experience as our instructors encouraged us to write code we might eventually delete. 
+With my wireframes and user stories drafted, I booted up the VSCode and started my new Django project. To be honest, my backend adventures got off to a rough start. Setting up my models, for which Django uses th term "app", I got a lot of errors with my Blog Post app and there were problems migrating the the apps into my TablePlus database. Long story short, after a couple days in a strong headwind, I cut my losses, deleted everything and started a new Django project from scratch. This wasn't fun, but definitely a good learning experience as our instructors encouraged us to write code we might eventually delete. 
 
 ### Backend CRUD functionality
 
@@ -106,9 +106,9 @@ In comparison to the MERN Stack application that I made in my Project 3, the Dja
 
 #### Authentication and permissions working with serializers
 
-In my API, when a user wants to post a blog post, the serializer checks that the user has the status of writer. 
+Two features in my API, that I'd like to highlight are when a user wants to post a blog post, the serializer checks that the user has the status of writer. And when a user wants to update their profile, the serializer again authenticates that the profile being updated is indeed that of the current user. Authentication is done with JWT Token authentication that Django offers out of the box. 
 
-This piece of code allows the user to update their profile and checks that the individual updating the profile is in fact the user. 
+This piece of code allows the user to update their profile and checks that the individual updating the profile is in fact the user. I've added a couple comments below that break up the code but explain why they were important to my process. 
 
 ```
 class ProfileEditSerializer(serializers.ModelSerializer):
@@ -124,7 +124,10 @@ class ProfileEditSerializer(serializers.ModelSerializer):
             'username': {'required': True},
             'email': {'required': True}
         }
+```
+* def validate(self, attrs) verifies which user is making hthe request. self.context allows for this, and I found this piece of code useful.
 
+```
     def validate(self, attrs):
         request = self.context.get("request")
         username = self.context.get("username")
@@ -136,18 +139,10 @@ class ProfileEditSerializer(serializers.ModelSerializer):
                 })
 
         print("attributes", attrs)
+```
+* If no ValidationError is raised, then the serializer runs the def update() function. 
 
-        return attrs
-#
-        # request = self.context.get("request")
-        # if request and hasattr(request, "user"):
-        #     if not request.user.is_premium:
-        #         raise serializers.ValidationError({
-        #             "is_premium": "Only premium users can create and update books."
-        #         })
-
-        # return attrs
-
+```
     def update(self, userprofile, data):
 
         userprofile.username = data.get("username", userprofile.username)
@@ -165,80 +160,123 @@ class ProfileEditSerializer(serializers.ModelSerializer):
         return userprofile
 
 ```
-And this one is the BlogPostSerialer, which verifies that the user is in fact a "staff_writer". 
+And this one is the BlogPostSerializer, which verifies that the user is in fact a "staff_writer" before letting a user publish a blogpost. 
 
 ```
-
-class ProfileEditSerializer(serializers.ModelSerializer):
+class BlogPostSerializer(serializers.ModelSerializer):
+    categories = CategorySerializer(many=True)
+    author = AuthorSerializer()
 
     class Meta:
-        model = CommunityUser
-        fields = ('username', 'first_name',
-                  'last_name', 'email', 'bio',)
-
-        extra_kwargs = {
-            'first_name': {'required': True},
-            'last_name': {'required': True},
-            'username': {'required': True},
-            'email': {'required': True}
-        }
-
+        model = BlogPost
+        fields = ('categories', 'author', 'title', 'image',
+                  'excerpt', 'content', 'status', 'id')
+```
+* Much like in the ProfileEditSerializer, def validate() checks that the field "is_staff_writer" = True for the user who is making the request. 
+```
     def validate(self, attrs):
         request = self.context.get("request")
-        username = self.context.get("username")
-        print("attributes", attrs)
         if request and hasattr(request, "user"):
-            if attrs['username'] != request.user.username:
-                raise serializers.ValidationError({
-                    "not_user": "Woops! What are you doing here? Only the person who made this profile can update it."
-                })
-
-        print("attributes", attrs)
+            if request.user.is_staff_writer == False:
+                raise serializers.ValidationError(
+                    {"message": "Only Staff Writers can post or update an article."}
+                )
 
         return attrs
-#
-        # request = self.context.get("request")
-        # if request and hasattr(request, "user"):
-        #     if not request.user.is_premium:
-        #         raise serializers.ValidationError({
-        #             "is_premium": "Only premium users can create and update books."
-        #         })
 
-        # return attrs
+    def create(self, data):
+        author_data = data.pop("author")
+        category_data = data.pop("categories")
+        # blogpost = BlogPost(**data)
+        blogpost = BlogPost(
+            title=data['title'],
+            excerpt=data['excerpt'],
+            content=data['content'],
+            status=data['status'],
+        )
 
-    def update(self, userprofile, data):
+        if author_data:
+            author = CommunityUser.objects.get(
+                first_name=author_data["first_name"])
+            blogpost.author = author
 
-        userprofile.username = data.get("username", userprofile.username)
-        userprofile.first_name = data.get(
-            "first_name", userprofile.first_name)
-        userprofile.last_name = data.get(
-            "last_name", userprofile.last_name)
-        userprofile.email = data.get("email", userprofile.email)
-        userprofile.bio = data.get("bio", userprofile.bio)
+        blogpost.save()
 
-    # save to the database
-        userprofile.save()
-        print("userprofile", userprofile.email)
-    # render to the api
-        return userprofile
+        if category_data:
+            for name in category_data:
+                newCategory, _created = Category.objects.get_or_create(**name)
+                blogpost.categories.add(newCategory)
+
+        return blogpost
 
 ```
 
 ### Front end noteworthy features 
 In the second week of the project, I turned my focus to building the front end. I'm proud of working with props and implementing user authentication on the front end. 
-
-#### Working with props
- - I'm particulary proud of the following line of code that uses a prop to set the username upon login and renders the user name in . In the gif above, you can see that the logged in user is "communityadvocate" where it says in the navbar, "Welcome back, communityadvocate!" 
-
- (add code snippet) 
-
+ 
 #### Authentication
 In my previous project, I didn't focus on authentication in the front end, so it was important to make this a key feature of my project. 
 
 The following is the code for logging in a user and using props to indicate in the App.js file if the user is loggedIn or loggedOut. 
 
- (add code snippet)
+ ```
+const onLogin = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await axios.post(`${API_URL}/api/token/`, formData)
+            const result = await response
+            console.log(result)
 
+            if (response.statusText === "OK") {
+                console.log("ok")
+                setAccessToken(response.data.access)
+                setRefreshToken(response.data.refresh)
+                setUsername(formData.username)
+                setIsStaffWriter(response.data.is_staff_writer)
+                console.log("Successful login for", formData.username)
+                const username = formData.username
+                props.onLogin(username)
+                navigate("/homepage")
+            }
+
+        }
+        catch (err) {
+            console.log(err)
+            setError(true)
+        }
+
+ ```
+When the user is loggedin then their JWT token is stored in local storage along with the refresh token and their username is also stored in local storage. 
+
+
+  ```
+<Route
+            path="login"
+            element={<Login
+              onLogin={(username, userStatus) => {
+                setLoggedIn(true)
+                setUser(username)
+                setIsStaffWriter(true)
+              }} />} />
+
+  ```
+Using the logic in this Route, I added my logout function to the Logout link in the navbar: 
+
+```
+ <Link to="/" onClick={() => {
+                 
+                  setLoggedIn(false)
+
+                  window.localStorage.clear()
+
+                }}
+                >Logout</Link>
+
+```
+
+#### Working with props
+ - I'm particulary proud of the following line of code that uses a prop to set the username upon login and renders the user name in . In the gif above, you can see that the logged in user is "communityadvocate" where it says in the navbar, "Welcome back, communityadvocate!" 
+ - In addition to passing the onLogin to the Login Route as a prop, I added a username that could render in the navbar. 
 
 ### Deployment and Styling 
 
