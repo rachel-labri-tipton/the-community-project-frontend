@@ -78,17 +78,17 @@ It took an entire class session to get these models right.
 
 One my database diagrams were ready to go, I used Excalidraw to sketch a wireframe and then to think about user stories. User stories were a new concept to me. As I planned to have visitors, basic users, and staff writers for this project, I sketched out a story for each type of user. While I didn't code all my ideas for all of these users, I found the exercise to be quite useful and even enjoyable. 
 
-*Here's my wireframe*
+*Here's my wireframe.*
 
 ![](./src/images/wireframe1.png)
 
-*And here are my user stories*
+*And here are my user stories.*
 
 These are for a "visitor" and a "basic user":
 
 ![](./src/images/userstories1.png)
 
-This one is for the "staff writer" or Django's "superuser"
+This one is for the "staff writer" or Django's "superuser":
 
 ![](./src/images/userstories2.jpg)
 
@@ -96,7 +96,7 @@ As you can see, I had some ambitious ideas!
 
 ## Development
 
-It feels like a 
+My backend adventures got off to a rough start. Django uses the term "app" for a specific python class or model. I still don't know what exactly went wrong, but I got a lot of errors setting up my Blog Post app and there were problems migrating the the apps into my TablePlus database. Long story short, but day 2 of coding, I was brave and deleted everything and started a new Django project. 
 
 ### Backend CRUD functionality
 
@@ -126,23 +126,25 @@ One piece of code that I worked on for what felt like a long time was the serial
 
 ## Wins 
 
-- Registration and login on the front end with a functional logout button. 
-- Full CRUD functionality on the backend and more CRUD functionality on the front end than in my Project 3. 
-- I built a fully functioning app that looks good. 
+- A user is able to register and login on the front end and then logout. 
+- My django backend apps all have CRUD functionality that includes authorization and permissions. 
+- Using the unDraw images, I built a fully functioning app that looks good. 
 
 
 ## Challenges
- - Starting the project over halfway through the first week
- - Not knowing what I didn't know, for example,  - Understanding how Django REST framework permissions worked out of the box. 
-                                                  - Knowing what frameworks or libraries to use: ex. with Quill and Summernote
- - Getting images in the correct format 
- - Seeding data
- - Getting the deployed backend and front end to work together and figuring out CORS issues 
+ - As I mentioned in the development section, I was getting a lot of errors by day 2 of coding which was super frustrating, so I started the project over halfway through the first project week. 
+
+ - Understanding how Django framework serializers work was a big challenge, and I enjoyed the workshops offered by our instructor during this project because it helped me and the other students talk through the code of how serializers work. 
+
+ - Not knowing what I didn't know: 1) I researched an implemented a RichTextEditor in my backend that I thought would help me with the Blog Post django app. It turned out that this is not compatible with a React frontend. I spend a good morning getting it all set up, and then ended up removing it completely later on. I then tried the Quill Editor on the front end and read and watched tutorials but couldn't get that to work either. 2) Django REST framework has an isAuthenticated permissions setting that I thought worked on all API call methods, but it doesn't, and I spent an entire afternoon wondering why my update user function was getting errors. This made me realize returning to the documentation when I'm getting permission errors could be the right thing to do. I ended up working on this one with my instructor.      
+
+ - Both my backend and front end were deployed to Heroku and Netlify, respectively, before the project deadline, but I ran into CORS issues that blocked my front end from accessing the backend. I didn't panic and ran the project from my local host for my presentation and after a couple days of rest was able to appropriately adjust the 
 
 ## Key learnings 
 
-I feel like with each successive project, I find that there are features I work on in the process that don't see the light of day in the deployed front end but it's all par for the course. 
+I feel like with each successive project, I find that there are features I work on in the process that don't see the light of day in the deployed front end but it's all par for the course. Here are a few things that I learned from this project: 
 
+ - It's totally ok to cut your losses and delete your project and start over. 
  - Projects are still a learning experience. Our instructor during this project offered mini workshops on features the group was struggling with, and at times I found it frustrating because I wanted to work on my project, but then realized reworking and revisiting certain concepts, like permissions and authorization was a way of going deeper and 
  - In one of these workshops we were introduced to TypeScript. I didn't end up using this technology 
  - Using props in React 
@@ -153,9 +155,10 @@ I feel like with each successive project, I find that there are features I work 
 
 
 ## If I'd had more time...
- - 
+ 
  - My front-end blog would have a comment function. This functionality works in the backend, but I didn't have time to implement it in the front end. 
+ - My blog posts would be able to be sorted by category. 
  - I really wanted to implement a search bar, also another feature for another day
- - A user would have a profile they could update
- - 
+ - A user would have a profile page they could update. 
+ 
 
