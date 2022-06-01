@@ -7,9 +7,10 @@ It's called The Community Project, and the idea was to make a template for a pot
 
 *Here's a quick look at The Community Project homepage:*
 
+![](./src/images/home-page-register.gif)
 
 ## Goal 
-A full-stack web app built with React, Python Django API and a Postgres database. 
+Solo project where I built a full-stack web app with React, a Python Django API and a PostgreSQL database. 
 
 **Timeframe**
 
@@ -38,35 +39,71 @@ Two weeks (35 course hours)
 - Table Plus
 
 ## Project brief 
-You must:
 
-* **Build a full-stack application** by making your own backend and your own front-end
-* **Use a Python Django API** using Django REST Framework to serve your data from a Postgres database
-* **Consume your API with a separate front-end** built with React
-* **Be a complete product** which most likely means multiple relationships and CRUD functionality for at least a couple of models
-* (**Implement thoughtful user stories/wireframes** that are significant enough to help you know which features are core MVP and which you can cut)
-* **Have a visually impressive design** to kick your portfolio up a notch and have something to wow future clients & employers. **ALLOW** time for this.
-* **Be deployed online** so it's publicly accessible.
+Following the project specifications for a Project 4 MVP, I did the following: 
+
+* **Built a full-stack application** making my own backend with Django using the Poetry package manager 
+* **Used a Python Django API** Django REST Framework served my data to the API from a PostgreSQL database. I used Table Plus to view the data in my database. 
+* **Built a separate front end for my API** - I did this with React. 
+* **Made a complete product** - My API has 4 models all with CRUD functionality. I was able to implement some of this functionality on the front end with user registration and login. 
+* **Implemented thoughtful user stories** - I built a wire frame and user stories with Excalidraw. These stories were detailed enough that I knew the Basic User story was my target MVP. 
+* **Implemented a visually impressive design** - As encouraged by my instructors, I took time to present a design I'm proud of and made sure at the beginning of week 2 of the project that I was learning the styling library I'd chosen. This also gave me the opportunity to use open source images from unDraw. 
+* **Deployed the project online** - Here is the front end **[The Community Project Front End](https://capable-bunny-0040ae.netlify.app/)**. And here is the backend **[The Community Project Backend](https://the-community-project.herokuapp.com/)**
 
 ## The Community Project
 
-I love the idea of community and people connecting positively over activities or ideas they love. My idea was to use this project to build a backend that I might use for friends who are looking to build a community page for their own passions. This version of the project has a blog and login and register function. But I hope to build it out to have a chat and workshop sign-up feature.
+I love the idea of community and people connecting positively over activities or ideas they love. My idea was to use this project to build a backend that I might use for friends who are looking to build a community page for their own passions. This version of the project has a blog and login and register function. 
 
-
+![](./src/images/login-go-to-blog.gif)
 
 ### Deployed version 
 
+**[The Community Project Front End](https://capable-bunny-0040ae.netlify.app/)**
+
 ## Planning 
 
- - wireframe
- - database screenshot
- ![](https://app.quickdatabasediagrams.com/#/d/cbkr4v)
+Take a day or two to plan my project helped me feel comfortable and confident when I started to code. 
+
+### Database Diagrams
+
+With the Python Django framework, it was important to draw database diagrams. I knew I'd want a User, Author, Blogpost, Blog comment, and Blog category classes in Django. Other models in the database diagram that I didn't end up coding were Conversations and Conversation topics for a possible chatroom feature. I built my models using QuickDB, which helped visualize one-to-one, one-to-many, and many-to-many relationships. What I enjoyed about this part was thinking about how the data I wanted to eventually consume with a front end needed to be designed in the backend. 
+
+![](./src/images/Quick-DB-image-1.jpg)
+
+![](./src/images/Quick-DB-image-2.jpg)
+
+It took an entire class session to get these models right. 
+
+### Wireframes and User Stories 
+
+One my database diagrams were ready to go, I used Excalidraw to sketch a wireframe and then to think about user stories. User stories were a new concept to me. As I planned to have visitors, basic users, and staff writers for this project, I sketched out a story for each type of user. While I didn't code all my ideas for all of these users, I found the exercise to be quite useful and even enjoyable. 
+
+*Here's my wireframe*
+
+![](./src/images/wireframe1.png)
+
+*And here are my user stories*
+
+These are for a "visitor" and a "basic user":
+
+![](./src/images/userstories1.png)
+
+This one is for the "staff writer" or Django's "superuser"
+
+![](./src/images/userstories2.jpg)
+
+As you can see, I had some ambitious ideas! 
 
 ## Development
+
+It feels like a 
 
 ### Backend CRUD functionality
 
 #### Working with serializers 
+
+One piece of code that I worked on for what felt like a long time was the serializer function for updating 
+
  - add code snippet for get context or whatever it was 
 
 #### Authorization and permissions 
@@ -112,6 +149,7 @@ I feel like with each successive project, I find that there are features I work 
  - Working with images 
  - My wireframe was a bit ambitious for this project's scale 
 - Learning a new styling library was fun especially since Tailwind has cool features out of the box. 
+- Differences between relational and non-relational databases 
 
 
 ## If I'd had more time...
