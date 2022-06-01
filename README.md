@@ -8,9 +8,6 @@ It's called The Community Project, and the idea was to make a template for a pot
 *Here's a quick look at The Community Project homepage:*
 
 
-
-
-
 ## Goal 
 A full-stack web app built with React, Python Django API and a Postgres database. 
 
@@ -41,10 +38,21 @@ Two weeks (35 course hours)
 - Table Plus
 
 ## Project brief 
+You must:
 
-
+* **Build a full-stack application** by making your own backend and your own front-end
+* **Use a Python Django API** using Django REST Framework to serve your data from a Postgres database
+* **Consume your API with a separate front-end** built with React
+* **Be a complete product** which most likely means multiple relationships and CRUD functionality for at least a couple of models
+* (**Implement thoughtful user stories/wireframes** that are significant enough to help you know which features are core MVP and which you can cut)
+* **Have a visually impressive design** to kick your portfolio up a notch and have something to wow future clients & employers. **ALLOW** time for this.
+* **Be deployed online** so it's publicly accessible.
 
 ## The Community Project
+
+I love the idea of community and people connecting positively over activities or ideas they love. My idea was to use this project to build a backend that I might use for friends who are looking to build a community page for their own passions. This version of the project has a blog and login and register function. But I hope to build it out to have a chat and workshop sign-up feature.
+
+
 
 ### Deployed version 
 
@@ -58,33 +66,58 @@ Two weeks (35 course hours)
 
 ### Backend CRUD functionality
 
-#### Starting over 
-
 #### Working with serializers 
+ - add code snippet for get context or whatever it was 
 
 #### Authorization and permissions 
+ - add code snippet showing 
 
 ### Front end noteworthy features 
 
 #### Working with props
+ - Props (username)
 
 #### Authorization
 
+ - changing the loggedIn/loggedOut status
+ - changing isStaffWriter and changing what's in the navbar 
+
 ### Deployment and Styling 
+
+- a note on deployment
+- a note on styling 
 
 ## Wins 
 
-- Registration and login on the front end with a functional logout button
-- Full CRUD functionality on the backend and more CRUD functionality on the front end than in my Project 3
-- 
+- Registration and login on the front end with a functional logout button. 
+- Full CRUD functionality on the backend and more CRUD functionality on the front end than in my Project 3. 
+- I built a fully functioning app that looks good. 
+
 
 ## Challenges
-
- - 
+ - Starting the project over halfway through the first week
+ - Not knowing what I didn't know, for example,  - Understanding how Django REST framework permissions worked out of the box. 
+                                                  - Knowing what frameworks or libraries to use: ex. with Quill and Summernote
+ - Getting images in the correct format 
+ - Seeding data
+ - Getting the deployed backend and front end to work together and figuring out CORS issues 
 
 ## Key learnings 
 
- - 
+I feel like with each successive project, I find that there are features I work on in the process that don't see the light of day in the deployed front end but it's all par for the course. 
+
+ - Projects are still a learning experience. Our instructor during this project offered mini workshops on features the group was struggling with, and at times I found it frustrating because I wanted to work on my project, but then realized reworking and revisiting certain concepts, like permissions and authorization was a way of going deeper and 
+ - In one of these workshops we were introduced to TypeScript. I didn't end up using this technology 
+ - Using props in React 
+ - Working with images 
+ - My wireframe was a bit ambitious for this project's scale 
+- Learning a new styling library was fun especially since Tailwind has cool features out of the box. 
+
 
 ## If I'd had more time...
+ - 
+ - My front-end blog would have a comment function. This functionality works in the backend, but I didn't have time to implement it in the front end. 
+ - I really wanted to implement a search bar, also another feature for another day
+ - A user would have a profile they could update
+ - 
 
