@@ -242,7 +242,41 @@ In my previous project, I didn't focus on authentication in the front end, so it
 
 The following is the code for logging in a user and using props to indicate in the App.js file if the user is loggedIn or loggedOut. 
 
- (add code snippet)
+```
+const onLogin = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await axios.post(`${API_URL}/api/token/`, formData)
+            const result = await response
+            console.log(result)
+
+            if (response.statusText === "OK") {
+                console.log("ok")
+                setAccessToken(response.data.access)
+                setRefreshToken(response.data.refresh)
+                setUsername(formData.username)
+                setIsStaffWriter(response.data.is_staff_writer)
+                console.log("Successful login for", formData.username)
+                const username = formData.username
+                props.onLogin(username)
+                navigate("/homepage")
+            }
+
+        }
+
+```
+Here is the code from the App.js file that uses this prop to set the users status as LoggedIn and set the username. 
+
+```
+<Route
+            path="login"
+            element={<Login
+              onLogin={(username, userStatus) => {
+                setLoggedIn(true)
+                setUser(username)
+                setIsStaffWriter(true)
+              }} />} />
+```
 
 
 ### Deployment and Styling 
