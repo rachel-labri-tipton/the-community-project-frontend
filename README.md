@@ -2,7 +2,7 @@
 
 **This is my fourth and final project for GA's Software Engineering Immersive course.** 
 
-**I built a full-stack application** with a Python Django REST framework API and a React frontend with Tailwind styling. 
+I built a **full-stack application with a Python Django REST framework API and a React frontend with Tailwind styling**. 
 It's called The Community Project, and the idea was to make a template for a potential community website that I might build for friends or future clients looking to build an online community. 
 
 *Here's a quick look at The Community Project homepage:*
