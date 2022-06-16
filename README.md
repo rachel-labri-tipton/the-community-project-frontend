@@ -242,8 +242,9 @@ Here is the code from the App.js file that uses this prop to set the users statu
 
 ## Deployment and Styling 
 
-- On day 12 of the project, I deployed my Python Django API to Heroku. I got an error message that Gunicorn was "failing to boot workers". I found **[this helpful article](https://help.heroku.com/HX4L23I4/debugging-deploy-issues-with-gunicorn)** that walked me through the steps of sorting this issue out. I was able to deploy the frontend on Netlify the next day but encountered CORS issues that persisted until after the project presentation but have been resolved. 
-- In the last week of the project, I had fun playing around with Tailwind styling. One of the features I appreciate about this styling library is that it is mobile-first, and my application can be viewed on a mobile device as well as a laptop. This is a feature my other projects don't have. 
+On day 12 of the project, I deployed my Python Django API to Heroku. I got an error message that Gunicorn was "failing to boot workers". I found **[this helpful article](https://help.heroku.com/HX4L23I4/debugging-deploy-issues-with-gunicorn)** that walked me through the steps of sorting this issue out. I was able to deploy the frontend on Netlify the next day but encountered CORS issues that persisted until after the project presentation but have been resolved. 
+
+In the last week of the project, I had fun playing around with Tailwind styling. One of the features I appreciate about this styling library is that it is mobile-first, and my application can be viewed on a mobile device as well as a laptop. This is a feature my other projects don't have. 
 
 ## Wins 
 
